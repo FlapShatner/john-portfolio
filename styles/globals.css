@@ -4,6 +4,7 @@
 
 :root {
   --fg-hsl: 0, 0%, 100%;
+  --shadow: 2px 2px 6px #a96840, -2px -2px 6px #915a3b;
 }
 
 body {
