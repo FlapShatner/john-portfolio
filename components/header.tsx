@@ -13,7 +13,7 @@ const HeaderLink = ({ linkName, linkPath, pathname }: HeaderLinkProps) => {
 
     return (
         <Link href={linkPath}>
-            <div className={`${pathname == linkPath ? 'text-red-600' : 'text-white'} hover:text-red-600 transition-colors ease-in-out duration-200 `} >{linkName}</div>
+            <div className={`${pathname == linkPath ? 'text-red-600' : 'text-white'} hover:text-red-600  transition-all ease-in-out duration-200`} >{linkName}</div>
         </Link>
     )
 }
@@ -27,13 +27,14 @@ export const Header = () => {
 
     return (
         <div className="w-full">
-            <div className='fixed w-full h-8 flex gap-8 items-center justify-center bg-black font-semibold'>
+
+            <div className='w-full h-16 flex justify-start items-center bg-[#1B1B1B] transition-all'>
+                <h1 className='pl-4 text-5xl font-bold '>John Roberts</h1>
+            </div>
+            <div className=' w-full h-8 flex gap-8 items-center justify-end bg-black font-semibold pr-4'>
                 {links.map((link) => (
                     <HeaderLink pathname={pathname} key={link.linkName} linkName={link.linkName} linkPath={link.linkPath} />
                 ))}
-            </div>
-            <div style={scrollDirection === "down" ? { height: "0px" } : { height: "96px" }} className={`fixed w-full top-8 flex justify-center items-center bg-[#1B1B1B] transition-all`}>
-                <h1 style={scrollDirection === "down" ? { opacity: "0" } : { opacity: "1" }} className='absolute text-5xl font-bold transition-opacity'>John Roberts</h1>
             </div>
         </div>
     )
