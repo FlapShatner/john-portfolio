@@ -8,9 +8,11 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>John Roberts</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
       </Head>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </>)
+    </>
+  )
 }
