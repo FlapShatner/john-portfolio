@@ -6,6 +6,7 @@ import 'yet-another-react-lightbox/styles.css'
 import PageTransition from '@/components/pageTransition'
 import { photos } from '@/lib/photos'
 import { useState } from 'react'
+import { Suggest } from '@/components/suggest'
 
 type Props = {}
 type IndexPageRef = React.ForwardedRef<HTMLDivElement>
@@ -35,6 +36,7 @@ const Photography = (props: Props, ref: IndexPageRef) => {
         />
         <Lightbox slides={photos} open={index >= 0} close={() => setIndex(-1)} index={index} plugins={[Zoom]} />
       </div>
+      <Suggest />
     </PageTransition>
   )
 }

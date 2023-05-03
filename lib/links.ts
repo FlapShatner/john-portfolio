@@ -6,3 +6,10 @@ export const links = [
   { linkName: 'Video', linkPath: '/video' },
   { linkName: 'Contact', linkPath: '/contact' },
 ]
+
+export const suggestions = [
+  { linkName: 'Photography', linkPath: '/photography' },
+  { linkName: 'Designs', linkPath: '/designs' },
+  { linkName: 'Editorial', linkPath: '/editorial' },
+  { linkName: 'Video', linkPath: '/video' },
+]
