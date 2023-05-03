@@ -1,4 +1,6 @@
 import React, { PropsWithChildren, useState } from 'react'
+
+import { motion } from 'framer-motion'
 import { Header } from './header'
 import { Footer } from './footer'
 import Menu from './menu'
@@ -12,7 +14,9 @@ export const Layout = ({ children }: PropsWithChildren) => {
   return (
     <main className={`flex min-h-screen flex-col items-center ${inter.className}`}>
       <Header setShow={setShow} show={show} />
-      {children}
+      <motion.div className='w-full' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        {children}
+      </motion.div>
       <Footer />
       <Menu setShow={setShow} show={show} />
     </main>
