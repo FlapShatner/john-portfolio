@@ -1,7 +1,10 @@
 import Link from "next/link"
+import { useState } from "react"
 import { useRouter } from "next/router"
-
+import { Twirl as Hamburger } from 'hamburger-react'
 import { links } from "@/lib/links"
+import { MenuProps } from "./menu"
+
 
 type HeaderLinkProps = {
     linkName: string
@@ -18,18 +21,22 @@ const HeaderLink = ({ linkName, linkPath, pathname }: HeaderLinkProps) => {
     )
 }
 
-export const Header = () => {
+export const Header = ({ show, setShow }: MenuProps) => {
     const router = useRouter()
     const { pathname } = router
 
 
+
     return (
         <div className="w-full ">
+            <div className='px-6 w-full h-16 flex items-center bg-[#1B1B1B] transition-all justify-between sm:justify-start'>
+                <h1 className=' text-4xl font-bold sm:text-5xl'>John Roberts</h1>
+                <div className={`absolute  sm:hidden z-10 ${show ? "right-6" : "right-4"}`}>
+                    <Hamburger toggle={setShow} toggled={show} direction="right" rounded />
+                </div>
 
-            <div className='w-full h-16 flex justify-start items-center bg-[#1B1B1B] transition-all'>
-                <h1 className='pl-4 text-5xl font-bold '>John Roberts</h1>
             </div>
-            <div className=' w-full h-8 flex gap-8 items-center justify-end bg-black font-semibold pr-4'>
+            <div className='hidden sm:flex w-full h-8 gap-8 items-center justify-center bg-black font-semibold pr-4 md:justify-end'>
                 {links.map((link) => (
                     <HeaderLink pathname={pathname} key={link.linkName} linkName={link.linkName} linkPath={link.linkPath} />
                 ))}
