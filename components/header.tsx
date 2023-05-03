@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { useScrollDirection } from "@/hooks/useScrollDirection"
+
 import { links } from "@/lib/links"
 
 type HeaderLinkProps = {
@@ -22,11 +22,9 @@ export const Header = () => {
     const router = useRouter()
     const { pathname } = router
 
-    const scrollDirection = useScrollDirection()
-    console.log(scrollDirection)
 
     return (
-        <div className="w-full">
+        <div className="w-full ">
 
             <div className='w-full h-16 flex justify-start items-center bg-[#1B1B1B] transition-all'>
                 <h1 className='pl-4 text-5xl font-bold '>John Roberts</h1>
