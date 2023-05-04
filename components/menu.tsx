@@ -33,7 +33,7 @@ const Menu = ({ show, setShow }: MenuProps) => {
             <div className='flex flex-col gap-8 text-3xl font-semibold pt-20'>
               {links.map((link) => (
                 <Link key={link.linkName} href={link.linkPath}>
-                  <div className={`${pathname == link.linkPath ? 'text-red-600' : 'text-white'}`} onClick={() => setShow(!show)}>
+                  <div className={`${pathname == link.linkPath ? 'text-red-500' : 'text-white'}`} onClick={() => setShow(!show)}>
                     {link.linkName}
                   </div>
                 </Link>

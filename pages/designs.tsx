@@ -17,21 +17,21 @@ const Designs = (props: Props, ref: DesignsPageRef) => {
   // Breakpoints in px for the number of photos per row
   const fourColumns = 1400
   const threeColumns = 900
-  const twoColumns = 600
+  const twoColumns = 500
 
   const rowConstraints = (w: number) => ({ maxPhotos: w > fourColumns ? 4 : w > threeColumns ? 3 : w > twoColumns ? 2 : 1 })
 
   return (
     <PageTransition ref={ref}>
       <div className='w-full px-4'>
-        <h1 className='text-center py-6 text-2xl'>Designs</h1>
+        <h1 className='text-center py-6 text-4xl font-extrabold'>Designs</h1>
         <PhotoAlbum
           photos={designs}
           layout='rows'
           rowConstraints={rowConstraints}
           renderPhoto={NextJsImage}
           defaultContainerWidth={1200}
-          spacing={(containerWidth) => (containerWidth < 600 ? 5 : 10)}
+          spacing={(containerWidth) => (containerWidth < 500 ? 5 : 10)}
           onClick={({ index }) => setIndex(index)}
         />
         <Lightbox slides={designs} open={index >= 0} close={() => setIndex(-1)} index={index} plugins={[Zoom]} />

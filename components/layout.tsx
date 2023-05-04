@@ -14,7 +14,7 @@ export const Layout = ({ children }: PropsWithChildren) => {
   return (
     <main className={`flex min-h-screen flex-col items-center ${inter.className}`}>
       <Header setShow={setShow} show={show} />
-      <motion.div className='w-full' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+      <motion.div className='w-full  mx-auto max-w-screen-2xl ' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         {children}
       </motion.div>
       <Footer />
