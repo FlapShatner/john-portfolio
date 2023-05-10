@@ -17,9 +17,9 @@ const Designs = (props: Props, ref: DesignsPageRef) => {
   const [index, setIndex] = useState(-1)
 
   // Breakpoints in px for the number of photos per row
-  const fourColumns = 1400
-  const threeColumns = 900
-  const twoColumns = 500
+  const fourColumns = 1200
+  const threeColumns = 700
+  const twoColumns = 200
 
   const rowConstraints = (w: number) => ({ maxPhotos: w > fourColumns ? 4 : w > threeColumns ? 3 : w > twoColumns ? 2 : 1 })
 
