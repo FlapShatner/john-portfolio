@@ -11,6 +11,9 @@ export function getNeighbors(arr: CoversImagesArray, index: number) {
 }
 
 export function getScrollbarWidth() {
+  if (typeof document === 'undefined') {
+    return 0
+  }
   // Creating invisible container
   const outer = document.createElement('div')
   outer.style.visibility = 'hidden'

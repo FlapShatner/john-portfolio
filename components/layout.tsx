@@ -6,24 +6,10 @@ import { HeaderLinks } from './header/headerLinks'
 import { Footer } from './footer'
 import Menu from './menu'
 import { Inter } from 'next/font/google'
-import { getScrollbarWidth } from '@/utils/utils'
-import { useBodyScrollable } from '@/hooks/useBodyScrollable'
 
 const inter = Inter({ subsets: ['latin'], axes: ['slnt'] })
 
-const scrollbarWidth = getScrollbarWidth()
-
 export const Layout = ({ children }: PropsWithChildren) => {
-  const bodyScrollable = useBodyScrollable()
-
-  useLayoutEffect(() => {
-    if (bodyScrollable) {
-      document.body.style.paddingRight = '0px'
-    } else {
-      document.body.style.paddingRight = `${scrollbarWidth}px`
-    }
-  }, [bodyScrollable])
-
   const [show, setShow] = useState(false)
 
   return (
