@@ -3,6 +3,8 @@ import YouTube, { YouTubeProps } from 'react-youtube'
 import { videos } from '@/lib/videos'
 import PageTransition from '@/components/pageTransition'
 import { Suggest } from '@/components/suggest'
+import ScrollToTop from 'react-scroll-to-top'
+import { UpArrow } from '@/components/upArrow'
 
 type VideoPlayerProps = {
   id: string
@@ -45,6 +47,7 @@ export default function Video(props: VideoPageProps, ref: VideoPageRef) {
         ))}
       </div>
       <Suggest />
+      <ScrollToTop className='scroll' smooth component={<UpArrow size={40} color={'black'} />} />
     </PageTransition>
   )
 }

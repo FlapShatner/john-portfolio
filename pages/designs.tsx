@@ -7,6 +7,8 @@ import PageTransition from '@/components/pageTransition'
 import { designs } from '@/lib/designs'
 import { useState } from 'react'
 import { Suggest } from '@/components/suggest'
+import ScrollToTop from 'react-scroll-to-top'
+import { UpArrow } from '@/components/upArrow'
 
 type Props = {}
 type DesignsPageRef = React.ForwardedRef<HTMLDivElement>
@@ -37,6 +39,7 @@ const Designs = (props: Props, ref: DesignsPageRef) => {
         <Lightbox slides={designs} open={index >= 0} close={() => setIndex(-1)} index={index} plugins={[Zoom]} />
       </div>
       <Suggest />
+      {index <= 0 && <ScrollToTop className='scroll' smooth component={<UpArrow size={40} color={'black'} />} />}
     </PageTransition>
   )
 }

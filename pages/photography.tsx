@@ -1,9 +1,11 @@
 import NextJsImage from '@/components/nextJsImage'
 import PageTransition from '@/components/pageTransition'
 import { Suggest } from '@/components/suggest'
+import { UpArrow } from '@/components/upArrow'
 import { photos } from '@/lib/photos'
 import { useState } from 'react'
 import PhotoAlbum from 'react-photo-album'
+import ScrollToTop from 'react-scroll-to-top'
 import Lightbox from 'yet-another-react-lightbox'
 import Zoom from 'yet-another-react-lightbox/plugins/zoom'
 import 'yet-another-react-lightbox/styles.css'
@@ -37,6 +39,7 @@ const Photography = (props: Props, ref: IndexPageRef) => {
         <Lightbox slides={photos} open={index >= 0} close={() => setIndex(-1)} index={index} plugins={[Zoom]} />
       </div>
       <Suggest />
+      {index <= 0 && <ScrollToTop className='scroll' smooth component={<UpArrow size={40} color={'black'} />} />}
     </PageTransition>
   )
 }

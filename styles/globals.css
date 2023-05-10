@@ -27,4 +27,20 @@ textarea {
 
 input {
   text-transform: uppercase;
+
+}
+
+.scroll {
+  border-radius: 100% !important;
+  width: 60px !important;
+  height: 60px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: .5;
+  transition: opacity ease-in-out .15s;
+}
+
+.scroll:hover {
+  opacity: .8 !important;
 }

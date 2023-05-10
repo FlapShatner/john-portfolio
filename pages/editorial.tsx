@@ -7,6 +7,8 @@ import 'yet-another-react-lightbox/styles.css'
 import PageTransition from '@/components/pageTransition'
 import { Suggest } from '@/components/suggest'
 import { photos } from '@/lib/editorial'
+import ScrollToTop from 'react-scroll-to-top'
+import { UpArrow } from '@/components/upArrow'
 
 type Props = {}
 type EditorialPageRef = React.ForwardedRef<HTMLDivElement>
@@ -59,6 +61,7 @@ const Editorial = (props: Props, ref: EditorialPageRef) => {
       </div>
       <Suggest />
       <Lightbox slides={photos} open={index >= 0} close={() => setIndex(-1)} index={index} plugins={[Zoom]} />
+      {index <= 0 && <ScrollToTop className='scroll' smooth component={<UpArrow size={40} color={'black'} />} />}
     </PageTransition>
   )
 }
