@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import YouTube, { YouTubeProps } from 'react-youtube'
 import { videos } from '@/lib/videos'
 import PageTransition from '@/components/pageTransition'
@@ -8,9 +9,11 @@ type VideoPlayerProps = {
 }
 
 const VideoPlayer = ({ id }: VideoPlayerProps) => {
+  const [ready, setReady] = useState(false)
   const onPlayerReady: YouTubeProps['onReady'] = (event) => {
     // access to player in all event handlers via event.target
     event.target.pauseVideo()
+    setReady(true)
   }
 
   const opts: YouTubeProps['opts'] = {
@@ -24,7 +27,7 @@ const VideoPlayer = ({ id }: VideoPlayerProps) => {
 
   return (
     <div className='w-full h-full max-w-[640px] max-h-[360px]'>
-      <YouTube className='aspect-video' videoId={id} opts={opts} onReady={onPlayerReady} />
+      <YouTube className='aspect-video border-2' videoId={id} opts={opts} onReady={onPlayerReady} loading='lazy' />
     </div>
   )
 }
@@ -36,7 +39,7 @@ export default function Video(props: VideoPageProps, ref: VideoPageRef) {
   return (
     <PageTransition ref={ref}>
       <h1 className='text-center py-6 text-4xl text-[#69DB7A] font-extrabold'>YOUTUBE SERIES “THE TASTING”</h1>
-      <div className='flex flex-col items-center justify-center gap-4 min-h-screen py-2'>
+      <div className='flex flex-col items-center justify-center gap-4 min-h-screen px-4 py-2'>
         {videos.map((video) => (
           <VideoPlayer key={video.id} id={video.id} />
         ))}

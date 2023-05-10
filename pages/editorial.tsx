@@ -20,18 +20,20 @@ type Photo = {
   btnTxt: string
 }
 
-const ImageWithLink = (photo: Photo) => {
-  const { src, alt, href, btnTxt, width, height } = photo
+const LinkButton = ({ href, btnTxt }: { href: string; btnTxt: string }) => {
   return (
-    <>
-      <Image className='mx-auto' src={src} width={width} height={height} alt={alt} />
-      <Link href={href}>
-        <div className='w-max mx-auto border py-1 px-6 text-[1.75rem] text-black font-extrabold border-black rounded-xl mt-6 mb-16 hover:bg-red-500 hover:text-[var(--fg)] transition-colors'>
-          {btnTxt}
-        </div>
+    <div className='w-max mx-auto border text-xs flex flex-shrink py-2 text-[var(--fg)] font-extrabold border-[var(--fg)] rounded-xl mt-6 mb-16 hover:bg-red-500 hover:text-[var(--fg)] transition-colors sm:text-2xl md:text-3xl md:px-2'>
+      <Link className='py-1 px-2 md:px-6' href={href}>
+        {btnTxt}
       </Link>
-    </>
+    </div>
   )
+}
+
+const PageImage = (photo: Photo) => {
+  const { src, alt, width, height } = photo
+
+  return <Image className='mx-auto' src={src} width={width} height={height} alt={alt} />
 }
 
 const Editorial = (props: Props, ref: EditorialPageRef) => {
@@ -42,15 +44,18 @@ const Editorial = (props: Props, ref: EditorialPageRef) => {
       <div className='w-full px-16'>
         <h1 className='text-center py-6 text-4xl font-extrabold'>Editorial</h1>
         {photos.map((photo, i) => (
-          <div className='cursor-pointer' onClick={() => setIndex(i)} key={i}>
-            <ImageWithLink {...photo} />
+          <div key={i}>
+            <div onClick={() => setIndex(i)}>
+              <PageImage {...photo} />
+            </div>
+            <LinkButton href={photo.href} btnTxt={photo.btnTxt} />
           </div>
         ))}
-        <Link href='https://www.motortrend.com/staff/john-roberts/'>
-          <div className='w-max mx-auto border py-1 px-6 text-[1.75rem] text-red-500 font-extrabold border-black rounded-xl mt-6 mb-16 hover:bg-[#1B1B1B] hover:text-[var(--fg)] transition-colors'>
+        <div className='w-max mx-auto border text-sm flex flex-shrink py-2 text-red-500 font-extrabold border-[var(--fg)] rounded-xl mt-6 mb-16 hover:bg-[#1B1B1B] hover:text-[var(--fg)] transition-colors md:text-3xl md:px-2'>
+          <Link className='py-1 px-2 md:px-6' href='https://www.motortrend.com/staff/john-roberts/'>
             More Editorial Here
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
       <Suggest />
       <Lightbox slides={photos} open={index >= 0} close={() => setIndex(-1)} index={index} plugins={[Zoom]} />
