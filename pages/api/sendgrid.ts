@@ -12,9 +12,9 @@ sendgrid.setApiKey(apiKey)
 async function sendEmail(req: NextApiRequest, res: NextApiResponse) {
   try {
     // console.log('REQ.BODY', req.body)
-    // jwr620@gmail.com
+
     await sendgrid.send({
-      to: 'jrobertswebdev@gmail.com', // Your email where you'll receive emails
+      to: 'jwr620@gmail.com', // Your email where you'll receive emails
       from: 'noreply@jrobertsweb.dev', // your website email address here
       subject: `From your portfolio contact form`,
       html: emailTemplate(req.body.fullName, req.body.email, req.body.message),
