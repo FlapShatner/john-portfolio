@@ -14,7 +14,9 @@ type HeaderLinkProps = {
 const HeaderLink = ({ linkName, linkPath, pathname }: HeaderLinkProps) => {
   return (
     <Link href={linkPath}>
-      <div className={`${pathname == linkPath ? 'text-red-500' : 'text-white'} hover:text-red-500  transition-all ease-in-out duration-200`}>{linkName}</div>
+      <div className={`${pathname == linkPath ? 'text-red-500' : 'text-[var(--fg)]'} hover:text-red-500  transition-all ease-in-out duration-200`}>
+        {linkName}
+      </div>
     </Link>
   )
 }

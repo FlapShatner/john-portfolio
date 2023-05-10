@@ -1,6 +1,6 @@
 import { Layout } from '@/components/layout'
-import { AnimatePresence } from 'framer-motion'
 import '@/styles/globals.css'
+import { AnimatePresence } from 'framer-motion'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 
@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>John Roberts</title>
+        <title>LOCAL John Roberts</title>
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
       </Head>
       <Layout>

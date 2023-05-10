@@ -29,11 +29,11 @@ const Menu = ({ show, setShow }: MenuProps) => {
     <AnimatePresence mode='wait'>
       {show && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={transition}>
-          <div className='absolute bg-black text-white top-0 left-0 h-full w-full flex justify-center items-start transition-all '>
+          <div className='absolute bg-black text-[var(--fg)] top-0 left-0 h-full w-full flex justify-center items-start transition-all '>
             <div className='flex flex-col gap-8 text-3xl font-semibold pt-20'>
               {links.map((link) => (
                 <Link key={link.linkName} href={link.linkPath}>
-                  <div className={`${pathname == link.linkPath ? 'text-red-500' : 'text-white'}`} onClick={() => setShow(!show)}>
+                  <div className={`${pathname == link.linkPath ? 'text-red-500' : 'text-[var(--fg)]'} hover:text-red-500`} onClick={() => setShow(!show)}>
                     {link.linkName}
                   </div>
                 </Link>

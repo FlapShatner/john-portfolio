@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --fg-hsl: 0, 0%, 100%;
+  --fg-hsl: 0, 0%, 93%;
+  --fg: hsl(var(--fg-hsl));
 }
 
 body {
@@ -16,4 +17,14 @@ body {
 
 .grad {
   background: linear-gradient(330deg, rgba(29, 29, 29, 1) 0%, rgba(60, 60, 60, 1) 75%, rgba(70, 70, 70, 1) 100%);
+}
+
+input,
+textarea {
+  font-variation-settings: 'slnt' -10;
+
+}
+
+input {
+  text-transform: uppercase;
 }

@@ -1,12 +1,12 @@
-import PhotoAlbum from 'react-photo-album'
 import NextJsImage from '@/components/nextJsImage'
+import PageTransition from '@/components/pageTransition'
+import { Suggest } from '@/components/suggest'
+import { photos } from '@/lib/photos'
+import { useState } from 'react'
+import PhotoAlbum from 'react-photo-album'
 import Lightbox from 'yet-another-react-lightbox'
 import Zoom from 'yet-another-react-lightbox/plugins/zoom'
 import 'yet-another-react-lightbox/styles.css'
-import PageTransition from '@/components/pageTransition'
-import { photos } from '@/lib/photos'
-import { useState } from 'react'
-import { Suggest } from '@/components/suggest'
 
 type Props = {}
 type IndexPageRef = React.ForwardedRef<HTMLDivElement>
