@@ -43,7 +43,7 @@ const Editorial = (props: Props, ref: EditorialPageRef) => {
 
   return (
     <PageTransition ref={ref}>
-      <div className='w-full px-16'>
+      <div className='w-full px-4 md:px-16'>
         <h1 className='text-center py-6 text-4xl font-extrabold'>Editorial</h1>
         {photos.map((photo, i) => (
           <div key={i}>
