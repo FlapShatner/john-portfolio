@@ -15,6 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>John Roberts</title>
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <link rel='shortcut icon' href='/favicon.png' />
       </Head>
       <Layout>
         <AnimatePresence initial={false} mode='wait'>
